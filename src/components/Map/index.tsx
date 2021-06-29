@@ -1,5 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
+
+import * as SC from './styles'
 
 export type Place = {
   id: string
@@ -37,28 +39,49 @@ const Map = ({ places }: MapProps) => {
   const router = useRouter()
 
   return (
-    <MapContainer
-      center={[31.768319, 35.21371]}
-      zoom={7}
-      scrollWheelZoom={true}
-      style={{ width: '100%', height: '100%' }}
-    >
-      <CustomTileLayer />
-      {places?.map(({ id, slug, name, location }) => {
-        return (
-          <Marker
-            key={id}
-            position={[location.latitude, location.longitude]}
-            title={name}
-            eventHandlers={{
-              click: () => {
-                router.push(`/place/${slug}`)
-              }
-            }}
-          />
-        )
-      })}
-    </MapContainer>
+    <SC.MapWrapper>
+      <MapContainer
+        center={[31.768319, 35.21371]}
+        zoom={7}
+        minZoom={2}
+        scrollWheelZoom={true}
+        style={{ width: '100%', height: '100%' }}
+        maxBounds={[
+          [-180, 180],
+          [180, -180]
+        ]}
+      >
+        <MapConsumer>
+          {(map) => {
+            const width =
+              window.innerWidth ||
+              document.documentElement.clientWidth ||
+              document.body.clientWidth
+
+            if (width < 768) {
+              map.setMinZoom(1)
+            }
+
+            return null
+          }}
+        </MapConsumer>
+        <CustomTileLayer />
+        {places?.map(({ id, slug, name, location }) => {
+          return (
+            <Marker
+              key={id}
+              position={[location.latitude, location.longitude]}
+              title={name}
+              eventHandlers={{
+                click: () => {
+                  router.push(`/place/${slug}`)
+                }
+              }}
+            />
+          )
+        })}
+      </MapContainer>
+    </SC.MapWrapper>
   )
 }
 
