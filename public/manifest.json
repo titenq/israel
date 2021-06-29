@@ -1,6 +1,6 @@
 {
-  "name": "Curso NextJS",
-  "short_name": "Curso NextJS",
+  "name": "Israel",
+  "short_name": "Israel",
   "icons": [
     {
       "src": "/img/icon-192.png",
@@ -16,7 +16,7 @@
     }
   ],
   "background_color": "#06092B",
-  "description": "Curso NextJS com Typescript, ReactJS e Styled Components",
+  "description": "Pontos de interesse em Israel",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#06092B"

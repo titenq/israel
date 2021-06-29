@@ -1,15 +1,15 @@
 export default {
-  canonical: 'https://titenq.vercel.com/israel',
+  canonical: 'https://israel-titenq.vercel.app',
   openGraph: {
     type: 'website',
     locale: 'pt-BR',
-    url: 'https://titenq.vercel.com/israel',
+    url: 'https://israel-titenq.vercel.app',
     site_name: 'Israel',
     title: 'Israel',
     description: 'Página com pontos de interesse em Israel.',
     images: [
       {
-        url: 'https://titenq.vercel.com/israel/img/screenshot.jpg',
+        url: 'https://israel-titenq.vercel.app/img/screenshot.jpg',
         width: 1280,
         height: 720,
         alt: 'Israel'

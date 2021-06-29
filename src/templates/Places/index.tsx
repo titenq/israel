@@ -34,9 +34,9 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
       <NextSeo
         title={`${place.name} - Israel`}
         description={place.description?.text || `${place.name} - Israel`}
-        canonical="https://titenq.vercel.com/israel"
+        canonical="https://israel-titenq.vercel.app"
         openGraph={{
-          url: 'https://titenq.vercel.com/israel',
+          url: 'https://israel-titenq.vercel.app',
           title: `${place.name} - Israel`,
           description: place.description?.text || `${place.name} - Israel`,
           images: [
